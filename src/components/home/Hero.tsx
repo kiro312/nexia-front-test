@@ -29,7 +29,7 @@ const Hero = () => {
         setContainerHeight(girlImage.clientHeight);
         heroContainer.style.width = "100%";
 
-        const windowWidth = window.innerWidth;
+        const windowWidth = 500;
         const responsiveValuesUpdated = {
           textLeft: windowWidth <= 767 ? 6 : 96,
           textFontSize: windowWidth <= 767 ? 16 : 32,
@@ -47,10 +47,10 @@ const Hero = () => {
 
     adjustContainerSize();
 
-    window.addEventListener("resize", adjustContainerSize);
+    // window.addEventListener("resize", adjustContainerSize);
 
     return () => {
-      window.removeEventListener("resize", adjustContainerSize);
+      // window.removeEventListener("resize", adjustContainerSize);
     };
   }, []);
 
@@ -107,9 +107,9 @@ const Hero = () => {
             minWidth: "200px",
             right: "10%",
             left: window.innerWidth <= 767 ? "45%" : "auto",
-            ...(window.innerWidth <= 767 && {
-              right: "0%",
-            }),
+            // ...(window.innerWidth <= 767 && {
+            //   right: "0%",
+            // }),
           }}
         />
 

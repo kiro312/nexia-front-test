@@ -2,7 +2,7 @@ import React from 'react';
 import { HiOutlineDocumentText } from 'react-icons/hi';
 
 const Button = () => {
-  const isSmallScreen = window.innerWidth <= 767;
+  const isSmallScreen =  767;
   return (
     <div className={` ${isSmallScreen ? 'min-h-48' : 'min-h-screen'}  bg-[#3E4772] flex justify-center items-center`}>
 

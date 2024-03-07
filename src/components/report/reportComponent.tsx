@@ -15,7 +15,10 @@ interface RoundedRectangleProps {
   children: ReactNode;
 }
 
-const RoundedRectangle: React.FC<RoundedRectangleProps> = ({ color, children }) => (
+const RoundedRectangle: React.FC<RoundedRectangleProps> = ({
+  color,
+  children,
+}) => (
   <Paper
     sx={{
       backgroundColor: color,
@@ -45,14 +48,14 @@ const ReportPage: React.FC<ReportPageProps> = ({
   userId,
   prediction,
 }) => {
-   const [selectedReportId, setSelectedReportId] = useState("");
+  const [selectedReportId, setSelectedReportId] = useState("");
   const handleReportChange = (event: SelectChangeEvent<string>) => {
     setSelectedReportId(event.target.value);
   };
 
   const downloadReport = async () => {
     const reportUrl = `http://localhost:8080/pdf/down/123e4567-e89b-12d3-a456-426614174001`;
- 
+
     try {
       const response = await fetch(reportUrl, {
         method: "GET",
@@ -70,20 +73,22 @@ const ReportPage: React.FC<ReportPageProps> = ({
         response.headers?.get("Content-Disposition")?.split("filename=")[1] ||
         "DyslexiaReport.pdf";
 
-      const url = window.URL.createObjectURL(blob);
+      // const url = window.URL.createObjectURL(blob);
+      const url =
+        "http://localhost:8080/pdf/down/123e4567-e89b-12d3-a456-426614174001";
       const a = document.createElement("a");
       a.href = url;
       a.download = filename;
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
-      window.URL.revokeObjectURL(url);
+      // window.URL.revokeObjectURL(url);
     } catch (error) {
       console.error("Error making API request:", error);
     }
   };
   const dyslexia = prediction == "0" ? "has Dyslexia" : "doesn't have Dyslexia";
-     const router = useRouter();
+  const router = useRouter();
   return (
     <Container component="main" maxWidth="md" sx={{ textAlign: "center" }}>
       <Button
