@@ -106,7 +106,7 @@ const Hero = () => {
             maxWidth: "25%",
             minWidth: "200px",
             right: "10%",
-            left: window.innerWidth <= 767 ? "45%" : "auto",
+            left: "auto",
             // ...(window.innerWidth <= 767 && {
             //   right: "0%",
             // }),
