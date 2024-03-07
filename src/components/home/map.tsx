@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 const RectanglePage = () => {
-  const isSmallScreen = window.innerWidth <= 767;
+  const isSmallScreen = window.innerWidth = 767;
   useEffect(() => {
     const observerOptions = {
       root: null,
